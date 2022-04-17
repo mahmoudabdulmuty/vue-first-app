@@ -13,7 +13,30 @@
 
 <script>
 export default {
-  props: ["username", "phoneNumber", "emailAddress", "isFavorite"],
+  // props: ["username", "phoneNumber", "emailAddress", "isFavorite"],
+  props: {
+    username: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    emailAddress: {
+      type: String,
+      required: false,
+      default: 'mahmoudabdulmuty@gmail.com'
+    },
+    isFavorite: {
+      type: String,
+      required: false,
+      default: "0",
+      validator: function (value) {
+        return value === "1" || value === "0";
+      },
+    },
+  },
   data() {
     return {
       dataIsVisible: false,

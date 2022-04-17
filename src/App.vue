@@ -7,7 +7,6 @@
       <friend-contact
         username="Mahmoud Abdulmuty"
         phone-number="4821 4874 541"
-        email-address="Mahmoud@example.com"
         is-favorite="1"
       ></friend-contact>
       <friend-contact
