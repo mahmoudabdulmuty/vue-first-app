@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ username }} {{ isDataFavorite === "1" ? "(Favorite)" : "" }}</h2>
+    <h2>{{ username }} {{ isDataFavorite ? "(Favorite)" : "" }}</h2>
     <button @click="toggleDetails">{{ detailsValue }} Details</button>
     <button @click="toggleFavorite">toggle Favorite</button>
     <ul v-if="dataIsVisible">
@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  // props: ["username", "phoneNumber", "emailAddress", "isFavorite"],
   props: {
     username: {
       type: String,
@@ -26,15 +25,12 @@ export default {
     emailAddress: {
       type: String,
       required: false,
-      default: 'mahmoudabdulmuty@gmail.com'
+      default: "mahmoudabdulmuty@gmail.com",
     },
     isFavorite: {
-      type: String,
+      type: Boolean,
       required: false,
-      default: "0",
-      validator: function (value) {
-        return value === "1" || value === "0";
-      },
+      default: false,
     },
   },
   data() {
@@ -48,11 +44,7 @@ export default {
       this.dataIsVisible = !this.dataIsVisible;
     },
     toggleFavorite() {
-      if (this.isDataFavorite === "1") {
-        this.isDataFavorite = "0";
-      } else {
-        this.isDataFavorite = "1";
-      }
+      this.isDataFavorite = !this.isDataFavorite;
     },
   },
   computed: {

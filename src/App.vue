@@ -5,22 +5,36 @@
     </header>
     <ul>
       <friend-contact
-        username="Mahmoud Abdulmuty"
-        phone-number="4821 4874 541"
-        is-favorite="1"
-      ></friend-contact>
-      <friend-contact
-        username="Yusuf Saied"
-        phone-number="01243 5426 412"
-        email-address="Yusuf@example.com"
-        is-favorite="0"
+        v-for="friend in friends"
+        :key="friend.id"
+        :username="friend.username"
+        :phone-number="friend.phoneNumber"
+        :email-address="friend.emailAddress"
+        :is-favorite="true"
       ></friend-contact>
     </ul>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      friends: [
+        {
+          username: "Mahmoud Abdulmuty",
+          phoneNumber: "4821 4874 541",
+          emailAddress: "mahmoud@example.com",
+        },
+        {
+          username: "Yusuf Saied",
+          phoneNumber: "01243 5426 412",
+          emailAddress: "Yusuf@example.com",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 
