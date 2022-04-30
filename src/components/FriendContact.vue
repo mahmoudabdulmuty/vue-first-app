@@ -40,6 +40,16 @@ export default {
       type: Number,
     },
   },
+  emits: {
+    "toggle-favorite": function (id) {
+      if (id) {
+        return true;
+      } else {
+        console.warn("id is missing");
+        return false;
+      }
+    },
+  },
   data() {
     return {
       dataIsVisible: false,
