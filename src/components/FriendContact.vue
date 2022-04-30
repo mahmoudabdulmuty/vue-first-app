@@ -1,59 +1,60 @@
 <template>
   <li>
-    <h2>{{ username }} {{ isFavorite ? "(Favorite)" : "" }}</h2>
-    <button @click="toggleDetails">{{ detailsValue }} Details</button>
-    <button @click="toggleFavorite">toggle Favorite</button>
+    <h2>
+      {{ username }}
+      {{ isFavorite ? "(Favorite)" : "" }}
+    </h2>
+    <button @click="toggleVisible">
+      {{ dataIsVisible ? "Hide" : "Show" }} Details
+    </button>
+    <button @click="toggleFavorite">Toggle Favorite</button>
     <ul v-if="dataIsVisible">
-      <li><strong>Phone : </strong> {{ phoneNumber }}</li>
-      <li><strong>Email : </strong> {{ emailAddress }}</li>
+      <li>
+        <strong>Phone:</strong>
+        {{ phoneNumber }}
+      </li>
+      <li>
+        <strong>Email:</strong>
+        {{ email }}
+      </li>
     </ul>
   </li>
 </template>
 
-
 <script>
 export default {
   props: {
-    id: {
-      type: Number,
-      required: true,
-    },
-    username: {
+    email: {
       type: String,
-      required: true,
     },
     phoneNumber: {
       type: String,
-      required: true,
     },
-    emailAddress: {
+    username: {
       type: String,
-      required: false,
-      default: "mahmoudabdulmuty@gmail.com",
     },
     isFavorite: {
       type: Boolean,
-      required: false,
-      default: false,
+    },
+    id: {
+      type: Number,
     },
   },
   data() {
     return {
       dataIsVisible: false,
+      isFavoriteValue: this.isFavorite,
     };
   },
   methods: {
-    toggleDetails() {
+    toggleVisible() {
       this.dataIsVisible = !this.dataIsVisible;
     },
     toggleFavorite() {
-      this.$emit("toggle-favorite", this.id);
-    },
-  },
-  computed: {
-    detailsValue() {
-      return this.dataIsVisible ? "Hide" : "Show";
+      this.$emit("toggle", this.id);
     },
   },
 };
 </script>
+
+<style scoped></style>
