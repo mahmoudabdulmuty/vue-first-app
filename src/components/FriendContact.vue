@@ -53,7 +53,6 @@ export default {
   data() {
     return {
       dataIsVisible: false,
-      isFavoriteValue: this.isFavorite,
     };
   },
   methods: {
