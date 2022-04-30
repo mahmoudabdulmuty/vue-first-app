@@ -51,7 +51,7 @@ export default {
       this.dataIsVisible = !this.dataIsVisible;
     },
     toggleFavorite() {
-      this.$emit("toggle", this.id);
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };

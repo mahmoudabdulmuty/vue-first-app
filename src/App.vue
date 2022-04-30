@@ -12,7 +12,7 @@
         :phone-number="friend.phone"
         :is-favorite="friend.isFavorite"
         :id="friend.id"
-        @toggle="toggleFavoriteProp"
+        @toggle-favorite="toggleFavoriteProp"
       ></friend-contact>
     </ul>
   </section>
